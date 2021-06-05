@@ -50,9 +50,9 @@ public class CSVProduktBuilderServiceImpl implements CSVProduktBuilderService {
                     break;
                 }
                 case "FrischerSalat": {
-                    Produkt käse = new FrischerSalat(Money.from((Money.parse("EUR " + record.get(1)))), (Integer.parseInt(record.get(2))), record.get(3), (Integer.parseInt(record.get(4))), LocalDate.parse(record.get(5)));
-                    käse.setType(record.get(0));
-                    list.add(käse);
+                    Produkt frischerSalat = new FrischerSalat(Money.from((Money.parse("EUR " + record.get(1)))), (Integer.parseInt(record.get(2))), record.get(3), (Integer.parseInt(record.get(4))), LocalDate.parse(record.get(5)));
+                    frischerSalat.setType(record.get(0));
+                    list.add(frischerSalat);
                     break;
                 }
                 default:

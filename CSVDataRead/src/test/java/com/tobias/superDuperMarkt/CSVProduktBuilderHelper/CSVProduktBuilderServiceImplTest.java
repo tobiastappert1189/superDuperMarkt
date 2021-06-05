@@ -25,7 +25,6 @@ class CSVProduktBuilderServiceImplTest {
         Reader in = new FileReader(file);
         Iterable<CSVRecord> records = CSVFormat.DEFAULT.withDelimiter(',').withHeader().parse(in);
 
-
         csvProduktBuilderService.iterate(records);
 
         assertDoesNotThrow(() -> csvProduktBuilderService.iterate(records));
