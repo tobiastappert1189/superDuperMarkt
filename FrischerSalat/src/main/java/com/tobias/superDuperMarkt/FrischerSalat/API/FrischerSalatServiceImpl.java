@@ -10,15 +10,13 @@ import static javax.money.Monetary.getDefaultRounding;
 
 public class FrischerSalatServiceImpl implements FrischerSalatService {
     @Override
-    public boolean checkFrischerSalatBadDate(FrischerSalat frischerSalat, LocalDate simulatedDay) throws BadDateException {
-        LocalDate actualDate = simulatedDay;
-        LocalDate lastPossibleDate = actualDate.plusDays(4); // count +1 to get the last day
-        LocalDate requiredDate = actualDate.plusDays(1); // substract with 1 to get also 30 days.
+    public void checkFrischerSalatBadDate(FrischerSalat frischerSalat, LocalDate simulatedDay) throws BadDateException {
+        LocalDate lastPossibleDate = simulatedDay.plusDays(4); // count +1 to get the last day
+        LocalDate requiredDate = simulatedDay.plusDays(1); // substract with 1 to get also 30 days.
 
         if (!(frischerSalat.getBadDate().isBefore(lastPossibleDate) && frischerSalat.getBadDate().isAfter(requiredDate))) {
             throw new BadDateException("badDate is wrong!");
         }
-        return true;
     }
 
     @Override

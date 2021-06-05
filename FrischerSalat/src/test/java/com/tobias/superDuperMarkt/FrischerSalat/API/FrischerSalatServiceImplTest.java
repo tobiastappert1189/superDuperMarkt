@@ -25,18 +25,18 @@ class FrischerSalatServiceImplTest {
     @Test
     void checkFrischerSalatBadDate() {
         LocalDate simulatedDay = LocalDate.of(2021, Month.JUNE, 1);
-        Produkt badDate = new FrischerSalat(Money.of(2.30, "EUR"), 3, "FrischerSalat", 40, LocalDate.of(2021, Month.JULY, 30));
+        FrischerSalat badDate = new FrischerSalat(Money.of(2.30, "EUR"), 3, "FrischerSalat", 40, LocalDate.of(2021, Month.JULY, 30));
         assertThatThrownBy(() -> {
-            frischerSalatService.checkFrischerSalatBadDate((FrischerSalat) badDate, simulatedDay);
+            frischerSalatService.checkFrischerSalatBadDate(badDate, simulatedDay);
         }).hasMessage("badDate is wrong!");
     }
 
     @Test
     void checkKäseBadDateCorrect() {
         LocalDate simulatedDay = LocalDate.of(2021, Month.JUNE, 1);
-        Produkt badDate = new FrischerSalat(Money.of(2.30, "EUR"), 3, "Käse", 40, LocalDate.of(2021, Month.JUNE, 3));
+        FrischerSalat badDate = new FrischerSalat(Money.of(2.30, "EUR"), 3, "Käse", 40, LocalDate.of(2021, Month.JUNE, 3));
         assertDoesNotThrow(() -> {
-            frischerSalatService.checkFrischerSalatBadDate((FrischerSalat) badDate, simulatedDay);
+            frischerSalatService.checkFrischerSalatBadDate(badDate, simulatedDay);
         });
     }
 
@@ -87,8 +87,8 @@ class FrischerSalatServiceImplTest {
 
     @Test
     void checkQualityCorrect() {
-        Produkt qualityCheck = new FrischerSalat(Money.of(2.30, "EUR"), 3, "FrischerSalat", 30, LocalDate.of(2021, Month.JULY, 10));
-        frischerSalatService.needToBeRemoved((FrischerSalat) qualityCheck);
+        FrischerSalat qualityCheck = new FrischerSalat(Money.of(2.30, "EUR"), 3, "FrischerSalat", 30, LocalDate.of(2021, Month.JULY, 10));
+        frischerSalatService.needToBeRemoved(qualityCheck);
         assertThat(qualityCheck).isNotNull()
                 .hasFieldOrPropertyWithValue("removeInformation", false);
     }

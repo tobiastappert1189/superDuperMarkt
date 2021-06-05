@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 public interface FrischerSalatService {
 
-    boolean checkFrischerSalatBadDate(FrischerSalat frischerSalat, LocalDate localDate) throws BadDateException;
+    void checkFrischerSalatBadDate(FrischerSalat frischerSalat, LocalDate localDate) throws BadDateException;
 
     boolean checkQuality(FrischerSalat frischerSalat);
 
