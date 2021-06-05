@@ -21,7 +21,7 @@ class CSVProduktBuilderServiceImplTest {
 
         CSVProduktBuilderServiceImpl csvProduktBuilderService = new CSVProduktBuilderServiceImpl();
 
-        String file = System.getProperty("user.dir") + "\\src/test/java/com/tobias/superDuperMarkt/CSVProduktBuilderServiceImplTest/TestdataCorrect.csv";
+        String file = System.getProperty("user.dir") + "\\src/test/java/com/tobias/superDuperMarkt/CSVProduktBuilderHelper/TestdataCorrect.csv";
         Reader in = new FileReader(file);
         Iterable<CSVRecord> records = CSVFormat.DEFAULT.withDelimiter(',').withHeader().parse(in);
 

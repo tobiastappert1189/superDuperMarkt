@@ -7,14 +7,7 @@
         <groupId>org.example</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-
     <dependencies>
-        <dependency>
-            <groupId>org.example</groupId>
-            <artifactId>GenericProdukt</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
